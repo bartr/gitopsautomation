@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: imdb
+  namespace: imdb
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/force-ssl-redirect: "false"
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+
+spec:
+  # tls:
+  # - secretName: imdb
+  #   hosts:
+  #   - rea.cluster.name.res-edge.com
+  rules:
+  - host: rea.cluster.name.res-edge.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: imdb
+            port:
+              number: 8080
