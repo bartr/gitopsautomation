@@ -1,9 +1,0 @@
-kind: Cluster
-name: TX-Austin-2002
-description: Austin Store 2002
-timezone: Americas/Chicago
-metadata:
-  type: store
-  region: Central
-  state: TX
-  city: Austin

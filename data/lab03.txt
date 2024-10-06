@@ -1,9 +1,0 @@
-kind: Cluster
-name: Lab03
-description: Redmond Lab
-timezone: Americas/LosAngeles
-metadata:
-  type: lab
-  region: West
-  state: WA
-  city: Redmond

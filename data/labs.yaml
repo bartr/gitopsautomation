@@ -1,0 +1,33 @@
+kind: Cluster
+name: Lab01
+description: Austin Lab
+timezone: Americas/Chicago
+metadata:
+  type: lab
+  region: Central
+  state: TX
+  city: Austin
+
+----
+
+kind: Cluster
+name: Lab02
+description: Ann Arbor Lab
+timezone: Americas/NewYork
+metadata:
+  type: lab
+  region: East
+  state: MI
+  city: AnnArbor
+
+---
+
+kind: Cluster
+name: Lab03
+description: Redmond Lab
+timezone: Americas/LosAngeles
+metadata:
+  type: lab
+  region: West
+  state: WA
+  city: Redmond

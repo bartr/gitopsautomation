@@ -1,0 +1,90 @@
+kind: Application
+name: cert-manager
+version: 1.14.4
+description: Cert Manager
+path: charts/cert-manager
+expression: /c/*
+overrideDeploymentWindows: false
+namespace: cert-manager
+metadata:
+  type: add-on
+
+---
+
+kind: Application
+name: ingress-nginx
+version: 1.10.1
+description: Nginx Ingress
+path: charts/ingress-nginx
+expression: /c/*
+overrideDeploymentWindows: false
+namespace: ingress-nginx
+metadata:
+  type: add-on
+
+---
+
+kind: Application
+name: heartbeat
+version: 0.1.0
+description: Heartbeat
+path: charts/heartbeat
+expression: /c/*
+overrideDeploymentWindows: false
+namespace: heartbeat
+metadata:
+  type: add-on
+  imageTag: 0.1.0
+
+---
+
+    kind: AppVersion
+    name: heartbeat
+    version: 0.3.0
+    description: Heartbeat
+    path: charts/heartbeat
+    expression: /m/type/lab
+    overrideDeploymentWindows: false
+    namespace: heartbeat
+    metadata:
+      type: add-on
+      imageTag: 0.3.0
+
+---
+
+kind: Application
+name: imdb
+version: 1.0.0
+description: imdb
+path: apps/imdb/base
+expression: /c/*
+overrideDeploymentWindows: false
+namespace: imdb
+metadata:
+  type: application
+
+---
+
+kind: AppVersion
+name: imdb
+version: 1.1.0
+description: imdb
+path: apps/imdb/overlays/v1.1.0
+expression: /m/type/lab
+overrideDeploymentWindows: false
+namespace: imdb
+metadata:
+  type: application
+
+---
+
+kind: AppVersion
+name: imdb
+version: 1.2.0
+description: imdb
+path: apps/imdb/overlays/v1.2.0
+expression: /c/Lab01
+overrideDeploymentWindows: false
+namespace: imdb
+metadata:
+  type: application
