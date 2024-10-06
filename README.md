@@ -8,13 +8,14 @@
 
 - Git CLI
 - dotnet SDK 8.0
-
+- GitHub Personal Access Token
 
 ## Quick Start
 
 ```bash
 
 # set environment variables
+# note: the PAT must be a GitHub Personal Access Token
 GITHUB_NAME=bartr
 PAT=myGitHubPAT
 
