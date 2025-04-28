@@ -494,3 +494,27 @@ region: Central
 state: TX
 city: Austin
 store: 78726
+
+---
+
+kind: Cluster
+id: 34787
+name: FL-Orlando
+description: FL Orlando
+metadata:
+  areaCode: 407
+  city: Orlando
+  county: Orange
+  latitude: 28.54
+  longitude: -81.38
+  population: 30700
+  region: East
+  ring: 0
+  state: FL
+  type: store
+  makeline: ACME4000
+timezone: America/New_York
+region: East
+state: FL
+city: Orlando
+store: 34787
