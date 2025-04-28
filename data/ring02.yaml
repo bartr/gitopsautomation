@@ -22,52 +22,28 @@ store: 78602
 
 
 ---
+
 kind: Cluster
-id: 78602
-name: TX-Bastrop
-description: TX Bastrop
+id: 78610
+name: TX-Buda
+description: TX Buda
 metadata:
   areaCode: 512
-  city: Bastrop
-  county: Bastrop
-  latitude: 30.11
-  longitude: -97.3
-  population: 30080
+  city: Buda
+  county: Hays
+  latitude: 30.08
+  longitude: -97.83
+  population: 43790
   region: Central
-  ring: 2
+  ring: 1
   state: TX
   type: store
   makeline: ACME3000
 timezone: America/Chicago
 region: Central
 state: TX
-city: Bastrop
-store: 78602
-
-
----
-
-kind: Cluster
-id: 34787
-name: FL-Orlando
-description: FL Orlando
-metadata:
-  areaCode: 489
-  city: Orlando
-  county: Orange
-  latitude: 30.08
-  longitude: -97.83
-  population: 43790
-  region: Eastern
-  ring: 1
-  state: FL
-  type: store
-  makeline: ACME3000
-timezone: America/NewYork
-region: Eastern
-state: FL
-city: Orlando
-store: 34787
+city: Buda
+store: 78610
 
 
 ---
