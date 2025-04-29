@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/cse-labs/pos:0.1.0
+          image: ghcr.io/bartr/pos:0.1.0
           imagePullPolicy: Always
           ports:
             - name: http

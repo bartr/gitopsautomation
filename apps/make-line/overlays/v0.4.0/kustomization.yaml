@@ -9,5 +9,5 @@ resources:
 - ../../base
 
 images:
-- name: ghcr.io/cse-labs/make-line
+- name: ghcr.io/bartr/make-line
   newTag: 0.4.0
