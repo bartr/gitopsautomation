@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./clusters/TX-Austin/cert-manager/cert-manager
+  path: ./clusters/TX-Austin/cert-manager
   prune: true
   sourceRef:
     kind: GitRepository

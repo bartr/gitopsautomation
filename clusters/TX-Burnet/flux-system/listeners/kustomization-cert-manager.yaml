@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./clusters/TX-Burnet/cert-manager/cert-manager
+  path: ./clusters/TX-Burnet/cert-manager
   prune: true
   sourceRef:
     kind: GitRepository
