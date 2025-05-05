@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./clusters/TX-Bastrop/cert-manager
+  path: ./clusters/tx-bastrop/cert-manager/base
   prune: true
   sourceRef:
     kind: GitRepository

@@ -1,0 +1,570 @@
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Austin
+    county: Travis
+    region: Central
+    ring: '0'
+    state: TX
+    type: store
+  name: tx-austin
+spec:
+  city: Austin
+  county: Travis
+  description: TX Austin
+  metadata:
+    areaCode: 512
+    latitude: 30.25
+    line: ACME5000
+    longitude: -97.85
+    population: 50000
+  region: Central
+  ring: 0
+  state: TX
+  storeNumber: 78727
+  timezone: America/Chicago
+  type: store
+
+---
+
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Bastrop
+    county: Bastrop
+    region: Central
+    ring: '2'
+    state: TX
+    type: store
+  name: tx-bastrop
+spec:
+  city: Bastrop
+  county: Bastrop
+  description: TX Bastrop
+  metadata:
+    areaCode: 512
+    latitude: 30.11
+    line: ACME3000
+    longitude: -97.3
+    population: 30080
+  region: Central
+  ring: 2
+  state: TX
+  storeNumber: 78602
+  timezone: America/Chicago
+  type: store
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Buda
+    county: Hays
+    region: Central
+    ring: '1'
+    state: TX
+    type: store
+  name: tx-buda
+spec:
+  city: Buda
+  county: Hays
+  description: TX Buda
+  metadata:
+    areaCode: 512
+    latitude: 30.08
+    line: ACME3000
+    longitude: -97.83
+    population: 43790
+  region: Central
+  ring: 1
+  state: TX
+  storeNumber: 78610
+  timezone: America/Chicago
+  type: store
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Burnet
+    county: Burnet
+    region: Central
+    ring: '1'
+    state: TX
+    type: store
+  name: tx-burnet
+spec:
+  city: Burnet
+  county: Burnet
+  description: TX Burnet
+  metadata:
+    areaCode: 325
+    latitude: 30.76
+    line: ACME4000
+    longitude: -98.22
+    population: 13540
+  region: Central
+  ring: 1
+  state: TX
+  storeNumber: 78611
+  timezone: America/Chicago
+  type: store
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Cedar-Creek
+    county: Bastrop
+    region: Central
+    ring: '1'
+    state: TX
+    type: store
+  name: tx-cedar-creek
+spec:
+  city: Cedar Creek
+  county: Bastrop
+  description: TX Cedar Creek
+  metadata:
+    areaCode: 512
+    latitude: 30.08
+    line: ACME4000
+    longitude: -97.5
+    population: 15730
+  region: Central
+  ring: 1
+  state: TX
+  storeNumber: 78612
+  timezone: America/Chicago
+  type: store
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Cedar-Park
+    county: Williamson
+    region: Central
+    ring: '0'
+    state: TX
+    type: store
+  name: tx-cedar-park
+spec:
+  city: Cedar Park
+  county: Williamson
+  description: TX Cedar Park
+  metadata:
+    areaCode: 512
+    latitude: 30.51
+    line: ACME3000
+    longitude: -97.83
+    population: 81490
+  region: Central
+  ring: 0
+  state: TX
+  storeNumber: 78613
+  timezone: America/Chicago
+  type: store
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Dale
+    county: Caldwell
+    region: Central
+    ring: '2'
+    state: TX
+    type: store
+  name: tx-dale
+spec:
+  city: Dale
+  county: Caldwell
+  description: TX Dale
+  metadata:
+    areaCode: 512
+    latitude: 29.93
+    line: ACME3000
+    longitude: -97.55
+    population: 10530
+  region: Central
+  ring: 2
+  state: TX
+  storeNumber: 78616
+  timezone: America/Chicago
+  type: store
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Del-Valle
+    county: Travis
+    region: Central
+    ring: '2'
+    state: TX
+    type: store
+  name: tx-del-valle
+spec:
+  city: Del Valle
+  county: Travis
+  description: TX Del Valle
+  metadata:
+    areaCode: 512
+    latitude: 30.16
+    line: ACME3000
+    longitude: -97.6
+    population: 25210
+  region: Central
+  ring: 2
+  state: TX
+  storeNumber: 78617
+  timezone: America/Chicago
+  type: store
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Dripping-Springs
+    county: Hays
+    region: Central
+    ring: '2'
+    state: TX
+    type: store
+  name: tx-dripping-springs
+spec:
+  city: Dripping Springs
+  county: Hays
+  description: TX Dripping Springs
+  metadata:
+    areaCode: 512
+    latitude: 30.18
+    line: ACME3000
+    longitude: -98.08
+    population: 22250
+  region: Central
+  ring: 2
+  state: TX
+  storeNumber: 78620
+  timezone: America/Chicago
+  type: store
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  labels:
+    city: Elgin
+    county: Bastrop
+    region: Central
+    ring: '2'
+    state: TX
+    type: store
+  name: tx-elgin
+spec:
+  city: Elgin
+  county: Bastrop
+  description: TX Elgin
+  metadata:
+    areaCode: 512
+    latitude: 30.34
+    line: ACME3000
+    longitude: -97.37
+    population: 26550
+  region: Central
+  ring: 2
+  state: TX
+  storeNumber: 78621
+  timezone: America/Chicago
+  type: store
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-fredericksburg
+  labels:
+    type: store
+    region: Central
+    state: TX
+    city: Fredericksburg
+    county: Gillespie
+    ring: '2'
+spec:
+  city: Fredericksburg
+  county: Gillespie
+  description: TX Fredericksburg
+  metadata:
+    areaCode: 325
+    latitude: 30.27
+    line: ACME3000
+    longitude: -98.87
+    population: 22120
+  region: Central
+  ring: 2
+  state: TX
+  storeNumber: 78624
+  timezone: America/Chicago
+  type: store
+
+---
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-georgetown
+  labels:
+    type: store
+    region: Central
+    state: TX
+    ring: "0"
+    county: Williamson
+    city: Georgetown
+spec:
+  type: store
+  ring: 0
+  storeNumber: 78628
+  timezone: America/Chicago
+  region: Central
+  state: TX
+  county: Williamson
+  city: Georgetown
+  description: TX Georgetown
+  metadata:
+    areaCode: 512
+    population: 43030
+    line: ACME3000
+    latitude: 30.65
+    longitude: -97.75
+---
+
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-gonzales
+  labels:
+    type: store
+    region: Central
+    state: TX
+    ring: "2"
+    county: Gonzales
+    city: Gonzales
+spec:
+  type: store
+  ring: 2
+  storeNumber: 78629
+  timezone: America/Chicago
+  region: Central
+  state: TX
+  county: Gonzales
+  city: Gonzales
+  description: TX Gonzales
+  metadata:
+    areaCode: 361
+    population: 11280
+    line: ACME3000
+    latitude: 29.5
+    longitude: -97.44
+---
+
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-hutto
+  labels:
+    type: store
+    region: Central
+    state: TX
+    ring: "1"
+    county: Williamson
+    city: Hutto
+spec:
+  type: store
+  ring: 1
+  storeNumber: 78634
+  timezone: America/Chicago
+  region: Central
+  state: TX
+  county: Williamson
+  city: Hutto
+  description: TX Hutto
+  metadata:
+    areaCode: 512
+    population: 39190
+    line: ACME3000
+    latitude: 30.54
+    longitude: -97.54
+---
+
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-kyle
+  labels:
+    type: store
+    region: Central
+    state: TX
+    ring: "1"
+    county: Hays
+    city: Kyle
+spec:
+  type: store
+  ring: 1
+  storeNumber: 78640
+  timezone: America/Chicago
+  region: Central
+  state: TX
+  county: Hays
+  city: Kyle
+  description: TX Kyle
+  metadata:
+    areaCode: 512
+    population: 63500
+    line: ACME3000
+    latitude: 29.99
+    longitude: -97.87
+---
+
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-leander
+  labels:
+    type: store
+    region: Central
+    state: TX
+    ring: "2"
+    county: Williamson
+    city: Leander
+spec:
+  type: store
+  ring: 2
+  storeNumber: 78641
+  timezone: America/Chicago
+  region: Central
+  state: TX
+  county: Williamson
+  city: Leander
+  description: TX Leander
+  metadata:
+    areaCode: 512
+    population: 88850
+    line: ACME3000
+    latitude: 30.56
+    longitude: -97.86
+---
+
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-liberty-hill
+  labels:
+    type: store
+    region: Central
+    state: TX
+    ring: "2"
+    county: Williamson
+    city: Liberty-Hill
+spec:
+  type: store
+  ring: 2
+  storeNumber: 78642
+  timezone: America/Chicago
+  region: Central
+  state: TX
+  county: Williamson
+  city: Liberty Hill
+  description: TX Liberty Hill
+  metadata:
+    areaCode: 512
+    population: 23930
+    line: ACME3000
+    latitude: 30.66
+    longitude: -97.92
+---
+
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-lockhart
+  labels:
+    type: store
+    region: Central
+    state: TX
+    ring: "2"
+    county: Caldwell
+    city: Lockhart
+spec:
+  type: store
+  ring: 2
+  storeNumber: 78644
+  timezone: America/Chicago
+  region: Central
+  state: TX
+  county: Caldwell
+  city: Lockhart
+  description: TX Lockhart
+  metadata:
+    areaCode: 512
+    population: 18020
+    line: ACME3000
+    latitude: 29.87
+    longitude: -97.67
+---
+
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-pflugerville
+  labels:
+    type: store
+    region: Central
+    state: TX
+    ring: "0"
+    county: Travis
+    city: Pflugerville
+spec:
+  type: store
+  ring: 0
+  storeNumber: 78660
+  timezone: America/Chicago
+  region: Central
+  state: TX
+  county: Travis
+  city: Pflugerville
+  description: TX Pflugerville
+  metadata:
+    areaCode: 512
+    population: 106660
+    line: ACME4000
+    latitude: 30.44
+    longitude: -97.62
+---
+
+apiVersion: goa.com/v1
+kind: Cluster
+metadata:
+  name: tx-round-rock
+  labels:
+    type: store
+    region: Central
+    state: TX
+    ring: "0"
+    county: Williamson
+    city: Round-Rock
+spec:
+  type: store
+  ring: 0
+  storeNumber: 78665
+  timezone: America/Chicago
+  region: Central
+  state: TX
+  county: Williamson
+  city: Round Rock
+  description: TX Round Rock
+  metadata:
+    areaCode: 512
+    population: 58710
+    line: ACME4000
+    latitude: 30.54
+    longitude: -97.64

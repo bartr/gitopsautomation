@@ -1,0 +1,186 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: clusters.goa.com
+spec:
+  group: goa.com
+  scope: Namespaced
+  names:
+    plural: clusters
+    singular: cluster
+    kind: Cluster
+    shortNames:
+      - cl
+  versions:
+  - name: v1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          apiVersion:
+            type: string
+          kind:
+            type: string
+          metadata:
+            type: object
+          spec:
+            type: object
+            properties:
+              type:
+                type: string
+              ring:
+                type: integer
+              storeNumber:
+                type: integer
+              timezone:
+                type: string
+              region:
+                type: string
+              state:
+                type: string
+              county:
+                type: string
+              city:
+                type: string
+              description:
+                type: string
+              metadata:
+                type: object
+                additionalProperties: true
+    additionalPrinterColumns:
+    - jsonPath: .spec.region
+      name: Region
+      type: string
+    - jsonPath: .spec.state
+      name: State
+      type: string
+    - jsonPath: .spec.county
+      name: County
+      type: string
+    - jsonPath: .spec.city
+      name: City
+      type: string
+    - jsonPath: .spec.storeNumber
+      name: StoreNumber
+      type: string
+    - jsonPath: .spec.ring
+      name: Ring
+      type: integer
+
+---
+
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: applications.goa.com
+spec:
+  group: goa.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      additionalPrinterColumns:
+      - jsonPath: .spec.namespace
+        name: Namespace
+        type: string
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            apiVersion:
+              type: string
+            kind:
+              type: string
+            metadata:
+              type: object
+            spec:
+              type: object
+              properties:
+                namespace:
+                  type: string
+                description:
+                  type: string
+                metadata:
+                  type: object
+                  additionalProperties: true
+                versions:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - version
+                      - path
+                    properties:
+                      version:
+                        type: string
+                      path:
+                        type: string
+                      expression:
+                        type: string
+                      namespace:
+                        type: string
+                      metadata:
+                        type: object
+                        additionalProperties: true
+      subresources:
+        status: {}
+  scope: Namespaced
+  names:
+    plural: applications
+    singular: application
+    kind: Application
+    shortNames:
+      - app
+      - apps
+
+---
+
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: groups.goa.com
+spec:
+  group: goa.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            apiVersion:
+              type: string
+            kind:
+              type: string
+            metadata:
+              type: object
+            spec:
+              type: object
+              properties:
+                path:
+                  type: string
+                description:
+                  type: string
+                metadata:
+                  type: object
+                  additionalProperties: true
+                clusters:
+                  type: array
+                  items:
+                    type: string
+      additionalPrinterColumns:
+      - jsonPath: .spec.path
+        name: Path
+        type: string
+      subresources:
+        status: {}
+  scope: Namespaced
+  names:
+    plural: groups
+    singular: group
+    kind: Group
+    shortNames:
+      - gr

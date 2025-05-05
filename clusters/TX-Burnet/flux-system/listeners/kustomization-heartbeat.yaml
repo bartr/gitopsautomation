@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./clusters/TX-Burnet/heartbeat/base
+  path: ./clusters/tx-burnet/heartbeat/base
   prune: true
   sourceRef:
     kind: GitRepository

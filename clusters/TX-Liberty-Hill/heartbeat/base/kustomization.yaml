@@ -12,5 +12,5 @@ resources:
   - deployment.yaml
 
 images:
-- name: ghcr.io/cse-labs/heartbeat
+- name: ghcr.io/bartr/heartbeat
   newTag: 0.1.0

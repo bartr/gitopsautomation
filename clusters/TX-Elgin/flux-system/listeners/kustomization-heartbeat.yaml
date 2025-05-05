@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./clusters/TX-Elgin/heartbeat/base
+  path: ./clusters/tx-elgin/heartbeat/base
   prune: true
   sourceRef:
     kind: GitRepository

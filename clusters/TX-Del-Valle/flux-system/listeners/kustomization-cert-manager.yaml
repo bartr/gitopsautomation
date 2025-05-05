@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./clusters/TX-Del-Valle/cert-manager
+  path: ./clusters/tx-del-valle/cert-manager/base
   prune: true
   sourceRef:
     kind: GitRepository

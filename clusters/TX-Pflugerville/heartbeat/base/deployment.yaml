@@ -5,7 +5,7 @@ metadata:
   namespace: heartbeat
   labels:
     app.kubernetes.io/name: heartbeat
-    storeName: TX-Pflugerville
+    storeName: tx-pflugerville
 spec:
   replicas: 1
   strategy:
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/cse-labs/heartbeat:0.1.0
+          image: ghcr.io/bartr/heartbeat:0.1.0
           imagePullPolicy: Always
           ports:
             - name: http

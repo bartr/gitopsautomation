@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./clusters/TX-Cedar-Park/cert-manager
+  path: ./clusters/tx-cedar-park/cert-manager/base
   prune: true
   sourceRef:
     kind: GitRepository

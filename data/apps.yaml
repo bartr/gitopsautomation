@@ -1,79 +1,90 @@
+apiVersion: goa.com/v1
 kind: Application
-name: cert-manager
-description: Cert Manager
-namespace: cert-manager
 metadata:
-  type: add-on
-versions:
-  - version: 1.14.4
-    path: apps/cert-manager
-    expression: /c/*
-    metadata:
-      imageTag: 1.14.4
+  name: heartbeat
+spec:
+  namespace: heartbeat
+  description: Heartbeat
+  metadata:
+    type: add-on
+    dependsOn: cert-manager
+  versions:
+    - version: "0.1.0"
+      namespace: heartbeat
+      path: apps/heartbeat/base
+      expression: /c/*
+      metadata:
+        imageTag: 0.1.0
+    - version: "0.4.0"
+      namespace: heartbeat
+      path: apps/heartbeat/overlays/v0.4.0
+      #expression: /m/ring/0
+      metadata:
+        imageTag: 0.4.0
 
 ---
 
+apiVersion: goa.com/v1
 kind: Application
-name: heartbeat
-description: Heartbeat
-namespace: heartbeat
 metadata:
-  type: add-on
-  dependsOn: cert-manager
-versions:
-  - version: 0.1.0
-    path: apps/heartbeat/base
-    expression: /c/*
-    metadata:
-      imageTag: 0.1.0
-  - version: 0.4.0
-    path: apps/heartbeat/overlays/v0.4.0
-    #expression: /m/ring/0
-    metadata:
-      imageTag: 0.4.0
+  name: cert-manager
+spec:
+  namespace: cert-manager
+  description: Cert Manager
+  metadata:
+    type: add-on
+  versions:
+    - version: "1.14.4"
+      namespace: cert-manager
+      path: apps/cert-manager/base
+      expression: /c/*
+      metadata:
+        imageTag: 1.14.4
 
-# ---
+---
 
+# apiVersion: goa.com/v1
 # kind: Application
-# name: make-line
-# description: Make Line
-# namespace: make-line
 # metadata:
-#   type: application
-# versions:
-#   - version: 0.1.0
-#     path: apps/make-line/base
-#     expression: /c/*
-#     metadata:
-#       imageTag: 0.1.0
-
+#   name: make-line
+# spec:
+#   description: Make Line
+#   metadata:
+#     type: application
+#   versions:
+#     - version: "0.1.0"
+#       path: apps/make-line/base
+#       expression: /c/*
+#       metadata:
+#         imageTag: 0.1.0
 # ---
-
+# apiVersion: goa.com/v1
 # kind: Application
-# name: ingress-nginx
-# description: Ingress NGINX
-# namespace: ingress-nginx
 # metadata:
-#   type: add-on
-#   dependsOn: cert-manager
-# versions:
-#   - version: 1.10.1
-#     path: apps/ingress-nginx
-#     expression: /c/*
-#     metadata:
-#       imageTag: 1.10.1
-
+#   name: ingress-nginx
+# spec:
+#   description: Ingress NGINX
+#   metadata:
+#     type: add-on
+#     dependsOn: cert-manager
+#   versions:
+#     - version: "4.10.1"
+#       path: apps/ingress-nginx/base
+#       expression: /c/*
+#       metadata:
+#         imageTag: 4.10.1
 # ---
-
+# apiVersion: goa.com/v1
 # kind: Application
-# name: pos
-# description: POS
-# namespace: pos
 # metadata:
-#   type: application
-# versions:
-#   - version: 0.1.0
-#     path: apps/pos/base
-#     expression: /c/*
-#     metadata:
-#       imageTag: 0.1.0
+#   name: pos
+# spec:
+#   description: POS
+#   metadata:
+#     type: application
+#   versions:
+#     - version: "0.1.0"
+#       path: apps/pos/base
+#       expression: /c/*
+#       metadata:
+#         imageTag: 0.1.0

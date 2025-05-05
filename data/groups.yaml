@@ -1,0 +1,113 @@
+apiVersion: goa.com/v1
+kind: Group
+metadata:
+  name: us
+spec:
+  path: /us
+  description: United States
+  metadata:
+    type: group
+
+---
+
+apiVersion: goa.com/v1
+kind: Group
+metadata:
+  name: central
+spec:
+  path: /us/central
+  description: United States - Central
+  metadata:
+    region: Central
+
+---
+
+apiVersion: goa.com/v1
+kind: Group
+metadata:
+  name: texas
+spec:
+  path: /us/central/texas
+  description: United States - Texas
+  metadata:
+    state: TX
+  clusters:
+    - tx-austin
+    - tx-bastrop
+    - tx-buda
+    - tx-burnet
+    - tx-cedar-creek
+    - tx-cedar-park
+    - tx-dale
+    - tx-del-valle
+    - tx-dripping-springs
+    - tx-elgin
+    - tx-fredericksburg
+    - tx-georgetown
+    - tx-gonzales
+    - tx-hutto
+    - tx-kyle
+    - tx-leander
+    - tx-liberty-hill
+    - tx-lockhart
+    - tx-pflugerville
+    - tx-round-rock
+
+---
+
+apiVersion: goa.com/v1
+kind: Group
+metadata:
+  name: ring0
+spec:
+  path: /ring0
+  description: Ring 0
+  metadata:
+    ring: 0
+  clusters:
+    - tx-austin
+    - tx-cedar-park
+    - tx-georgetown
+    - tx-pflugerville
+    - tx-round-rock
+
+---
+
+apiVersion: goa.com/v1
+kind: Group
+metadata:
+  name: ring1
+spec:
+  path: /ring1
+  description: Ring 1
+  metadata:
+    ring: 1
+  clusters:
+    - tx-buda
+    - tx-burnet
+    - tx-cedar-creek
+    - tx-hutto
+    - tx-kyle
+
+---
+
+apiVersion: goa.com/v1
+kind: Group
+metadata:
+  name: ring2
+spec:
+  path: /ring2
+  description: Ring 2
+  metadata:
+    ring: 2
+  clusters:
+    - tx-bastrop
+    - tx-dale
+    - tx-del-valle
+    - tx-dripping-springs
+    - tx-elgin
+    - tx-fredericksburg
+    - tx-gonzales
+    - tx-leander
+    - tx-liberty-hill
+    - tx-lockhart
