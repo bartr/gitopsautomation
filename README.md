@@ -1,57 +1,233 @@
 # GitOps Automation
 
-## Overview
+This repository contains the GitOps configurations for managing Kubernetes clusters across multiple retail store locations. Its primary purpose is to automate ring-based deployments of applications across store clusters, allowing controlled rollout of different application versions to specific groups of stores. Rings can be defined either through cluster metadata or via explicit group definitions, enabling flexible deployment strategies. The GitOps Automation tooling combines configuration data with application templates to generate store-specific Kubernetes manifests, with built-in support for rapid rollback in case of deployment issues.
 
-- GitOps Automation development branch
-
-## Prerequisites
-
-- Git CLI
-- DotNet 8.0 SDK
-
-## Quick Start
-
-- Fork this repo and clone the fork
-- Change to the repo directory (default: ./gitopsautomation)
-- Install the sample GitOps Automation tool
-
-```bash
-
-dotnet tool install --global GitOpsAutomation --version 0.3.2
-
-# if you get a nuget source missing error
-# dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
-
-# run the GitOpsAutomation tool
-goa
-
-# list the clusters
-goa list clusters
-
-# list the applications
-goa list applications
-
-# list the clusters in ring 0
-goa eval -e "/m/ring/0"
-
-# re-generate the GitOps manifests
-goa gen
-git status
+## Repository Structure
 
 ```
+.
+├── apps/                 # Kubernetes manifest templates
+│   ├── pos/              # Point of Sale system
+│   ├── make-line/        # Burrito bowl preparation system
+│   ├── ingress-nginx/    # Ingress controller
+│   ├── heartbeat/        # Health monitoring
+│   └── cert-manager/     # SSL/TLS certificate management
+├── clusters/             # Generated cluster configurations
+│   ├── tx-austin/        # Austin store cluster
+│   ├── tx-round-rock/    # Round Rock store cluster
+│   ├── tx-pflugerville/  # Pflugerville store cluster
+│   └── ...               # Other store clusters (20 total stores)
+└── data/                 # Configuration data
+    ├── clusters.yaml     # Cluster definitions and metadata
+    ├── apps.yaml         # Application version definitions
+    ├── groups.yaml       # Group definitions for deployment targeting
+    └── crds.yaml         # Custom Resource Definitions for validation
+```
 
-## Support
+## Configuration Management
 
-This project uses GitHub Issues to track bugs and feature requests. Please search the existing issues before filing new issues to avoid duplicates. For new issues, file your bug or feature request as a new issue.
+### Custom Resource Definitions (CRDs)
+
+The repository uses Custom Resource Definitions (CRDs) to define the structure and validation rules for clusters, applications, and groups. CRDs extend the Kubernetes API by defining new, custom resource types that can be managed like built-in Kubernetes objects.
+
+For more information on CRDs, see the [Kubernetes documentation on Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
+
+The following CRDs are defined in `data/crds.yaml`:
+
+- **Cluster CRD**: Defines the structure for cluster configurations in `clusters.yaml`
+  - Specifies metadata, networking, and infrastructure details for each retail store cluster
+  - Validates cluster-specific configuration parameters
+
+- **Application CRD**: Defines the structure for application configurations in `apps.yaml`
+  - Specifies versioning, dependencies, and deployment rules
+  - Ensures consistent application deployment across clusters
+
+- **Group CRD**: Defines the structure for group configurations in `groups.yaml`
+  - Allows logical grouping of clusters for deployment targeting
+  - Enables ring-based deployment strategies
+
+Sample configurations in these YAML files conform to their respective CRD specifications, ensuring consistent and validated configurations across the GitOps workflow.
+
+### Cluster and Application Versioning
+
+The repository uses GitOps Automation (goa), a powerful command-line tool that streamlines the process of managing Kubernetes configurations in a GitOps workflow. It merges configuration data with K8s templates to populate the GitOps repository efficiently.
+
+#### Key Features
+- **Configuration Management**: Merges configuration data with Kubernetes templates
+- **Cluster Management**: Lists and manages Kubernetes clusters
+- **Group Management**: Organizes and lists application groups
+- **Application Management**: Lists and manages applications across clusters
+- **Expression Evaluation**: Supports complex expression evaluation in configurations
+- **Dry Run Support**: Tests changes before applying them
+- **Multi-threading**: Optimized performance for large-scale deployments
+- **YAML Support**: Native YAML input/output support
+
+### Application Templates
+
+The `apps/` directory contains Kubernetes manifest templates that are used to deploy applications to each cluster. These templates leverage Kustomize, a powerful Kubernetes native configuration management tool, allowing multiple versions of applications to coexist and be deployed to different customers. The templates are processed by the GitOps automation process and combined with version information from `apps.yaml` to generate the final manifests for each cluster.
+
+Using Kustomize with Flux is considered a best practice in GitOps workflows, as it provides powerful capabilities like:
+- Base and overlay configurations for different environments
+- Strategic merge patches for customization
+- ConfigMap and Secret generators
+- Resource transformers for consistent modifications
+
+For more information on using Kustomize with Flux, see the [Flux documentation on Kustomize integration](https://fluxcd.io/flux/components/kustomize/kustomization/).
+
+Key applications include:
+- **POS System**: Point of Sale application for retail operations
+- **Make Line**: Automated system for burrito bowl preparation
+- **Ingress Nginx**: Kubernetes ingress controller for routing traffic
+- **Cert Manager**: SSL/TLS certificate management
+- **Heartbeat**: Health monitoring and status reporting
+
+### Deployment Rules
+
+Applications are mapped to clusters using expressions in the `apps.yaml` file:
+
+- `/c/*`: Deploys to all clusters
+- `/m/ring/0`: Deploys to clusters with metadata `ring: 0`
+- `/g/ring1`: Deploys to clusters in the `ring1` group
+- Additional expressions can be defined for specific deployment patterns
+
+#### Process Flow
+1. The GitOps automation process reads the configuration files
+2. Evaluates the expressions against cluster metadata and group membership
+3. Generates the appropriate Kubernetes manifests
+4. Saves the results in the `/clusters` directory
+5. Each store gets its own subdirectory with its specific configuration
+
+```mermaid
+graph LR
+    subgraph "Configuration"
+        A[Clusters]
+        B[Applications]
+        C[Groups]
+    end
+
+    subgraph "Deployment"
+        J[Deployment Rules Examples]
+        J --> |"/c/*"| K[All Clusters]
+        J --> |"/c/tx-austin"| N[Cluster by Name]
+        J --> |"/m/ring/0"| L[Ring 0 Metadata]
+        J --> |"/g/ring1"| M[Ring 1 Group]
+    end
+
+    subgraph "GitOps Automation"
+        O[Configuration] --> E[Deployment Rules Evaluation]
+        E --> F[Manifest Generation]
+    end
+
+    subgraph "Generated Configurations"
+        F --> G[clusters/tx-austin/]
+        F --> H[clusters/tx-cedar-park/]
+        F --> I[clusters/tx-round-rock/]
+    end
+
+    Configuration --> O
+    Deployment --> E
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    style B fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    style C fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    style E fill:#dfd,stroke:#333,stroke-width:2px,color:#000
+    style J fill:#dfd,stroke:#333,stroke-width:2px,color:#000
+    style O fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+```
+
+## Architecture
+
+The following diagram illustrates how the GitOps repository is deployed to retail stores in the Austin area:
+
+```mermaid
+graph TB
+    subgraph "GitOps Repository"
+        A[GitOps Repo] --> B[Clusters Config]
+        A --> C[Apps Config]
+        B --> D[Store Clusters]
+        C --> E[Applications]
+    end
+
+    subgraph "Store Clusters"
+        D --> F[tx-austin]
+        D --> G[tx-round-rock]
+        D --> H[tx-pflugerville]
+        D --> I[tx-cedar-park]
+        D --> J[tx-leander]
+    end
+
+    subgraph "Applications"
+        E --> K[POS System]
+        E --> L[Make Line]
+        E --> M[Ingress Nginx]
+        E --> N[Cert Manager]
+        E --> O[Heartbeat]
+    end
+
+    subgraph "Flux CD"
+        P[Flux Controller] --> F
+        P --> G
+        P --> H
+        P --> I
+        P --> J
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    style P fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style F fill:#dfd,stroke:#333,stroke-width:2px,color:#000
+    style G fill:#dfd,stroke:#333,stroke-width:2px,color:#000
+    style H fill:#dfd,stroke:#333,stroke-width:2px,color:#000
+    style I fill:#dfd,stroke:#333,stroke-width:2px,color:#000
+    style J fill:#dfd,stroke:#333,stroke-width:2px,color:#000
+```
+
+## Components
+
+### Applications
+- **POS System**: Point of Sale application for retail operations
+- **Make Line**: Automated system for burrito bowl preparation
+- **Ingress Nginx**: Kubernetes ingress controller for routing traffic
+- **Cert Manager**: SSL/TLS certificate management
+- **Heartbeat**: Health monitoring and status reporting
+
+### Store Clusters
+Each retail store location has its own Kubernetes cluster, managed through GitOps. The clusters are named according to their location (e.g., `tx-austin`, `tx-round-rock`).
+
+### GitOps Implementation
+This repository uses Arc enabled GitOps (Flux) for GitOps implementation, which:
+- Continuously monitors the repository for changes
+- Automatically syncs configurations to the appropriate clusters
+- Maintains the desired state of all store environments
+- Provides audit trail of all changes
+
+## Getting Started
+
+### Prerequisites
+- Kubernetes cluster
+- Flux CD installed
+- kubectl configured
+
+### Deployment
+1. Clone this repository
+2. Configure Flux CD for your cluster
+3. Apply the cluster-specific configurations
+4. Monitor the deployment through Flux CD
 
 ## Contributing
+1. Create a new branch for your changes
+2. Make your changes
+3. Submit a pull request
+4. Ensure all tests pass
+5. Get approval from maintainers
 
-This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
+## Security
+- Access to the repository is restricted
+- All changes require review and approval
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
+## Support
+For support, please create an issue in this repository
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## Trademarks
-
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.
+<div align="center">
+    Powered by: Firefly Nixie<br>
+    <img src="images/nixie.png" alt="Powered by: Firefly Nixie" height="120">
+</div>
