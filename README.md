@@ -164,21 +164,25 @@ graph TB
         E --> O[Heartbeat]
     end
 
-    subgraph "Flux CD"
-        P[Flux Controller] --> F
-        P --> G
-        P --> H
-        P --> I
-        P --> J
+    subgraph "Stores"
+        P[Austin] --> F
+        Q[Round Rock] --> G
+        R[Pflugerville] --> H
+        S[Cedar Park] --> I
+        T[Leander] --> J
     end
 
     style A fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-    style P fill:#bbf,stroke:#333,stroke-width:2px,color:#000
     style F fill:#dfd,stroke:#333,stroke-width:2px,color:#000
     style G fill:#dfd,stroke:#333,stroke-width:2px,color:#000
     style H fill:#dfd,stroke:#333,stroke-width:2px,color:#000
     style I fill:#dfd,stroke:#333,stroke-width:2px,color:#000
     style J fill:#dfd,stroke:#333,stroke-width:2px,color:#000
+    style P fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style Q fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style R fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style S fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style T fill:#bbf,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ## Components
