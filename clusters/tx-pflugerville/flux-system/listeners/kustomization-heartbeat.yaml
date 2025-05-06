@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./clusters/tx-pflugerville/heartbeat/overlays/v0.4.0
+  path: ./clusters/tx-pflugerville/heartbeat/base
   prune: true
   sourceRef:
     kind: GitRepository
