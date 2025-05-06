@@ -2,28 +2,6 @@
 
 This repository contains the GitOps configurations for managing Kubernetes clusters across multiple retail store locations. Its primary purpose is to automate ring-based deployments of applications across store clusters, allowing controlled rollout of different application versions to specific groups of stores. Rings can be defined either through cluster metadata or via explicit group definitions, enabling flexible deployment strategies. The GitOps Automation tooling combines configuration data with application templates to generate store-specific Kubernetes manifests, with built-in support for rapid rollback in case of deployment issues.
 
-## Repository Structure
-
-```
-.
-├── apps/                 # Kubernetes manifest templates
-│   ├── pos/              # Point of Sale system
-│   ├── make-line/        # Burrito bowl preparation system
-│   ├── ingress-nginx/    # Ingress controller
-│   ├── heartbeat/        # Health monitoring
-│   └── cert-manager/     # SSL/TLS certificate management
-├── clusters/             # Generated cluster configurations
-│   ├── tx-austin/        # Austin store cluster
-│   ├── tx-round-rock/    # Round Rock store cluster
-│   ├── tx-pflugerville/  # Pflugerville store cluster
-│   └── ...               # Other store clusters (20 total stores)
-└── config/               # Configuration data
-    ├── clusters.yaml     # Cluster definitions and metadata
-    ├── apps.yaml         # Application version definitions
-    ├── groups.yaml       # Group definitions for deployment targeting
-    └── crds.yaml         # Custom Resource Definitions for validation
-```
-
 ## Configuration Management
 
 ### Custom Resource Definitions (CRDs)
@@ -203,6 +181,28 @@ This repository uses Arc enabled GitOps (Flux) for GitOps implementation, which:
 - Automatically syncs configurations to the appropriate clusters
 - Maintains the desired state of all store environments
 - Provides audit trail of all changes
+
+## Repository Structure
+
+```
+.
+├── apps/                 # Kubernetes manifest templates
+│   ├── pos/              # Point of Sale system
+│   ├── make-line/        # Burrito bowl preparation system
+│   ├── ingress-nginx/    # Ingress controller
+│   ├── heartbeat/        # Health monitoring
+│   └── cert-manager/     # SSL/TLS certificate management
+├── clusters/             # Generated cluster configurations
+│   ├── tx-austin/        # Austin store cluster
+│   ├── tx-round-rock/    # Round Rock store cluster
+│   ├── tx-pflugerville/  # Pflugerville store cluster
+│   └── ...               # Other store clusters (20 total stores)
+└── config/               # Configuration data
+    ├── clusters.yaml     # Cluster definitions and metadata
+    ├── apps.yaml         # Application version definitions
+    ├── groups.yaml       # Group definitions for deployment targeting
+    └── crds.yaml         # Custom Resource Definitions for validation
+```
 
 ## Getting Started
 
