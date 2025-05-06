@@ -17,7 +17,7 @@ This repository contains the GitOps configurations for managing Kubernetes clust
 │   ├── tx-round-rock/    # Round Rock store cluster
 │   ├── tx-pflugerville/  # Pflugerville store cluster
 │   └── ...               # Other store clusters (20 total stores)
-└── data/                 # Configuration data
+└── config/               # Configuration data
     ├── clusters.yaml     # Cluster definitions and metadata
     ├── apps.yaml         # Application version definitions
     ├── groups.yaml       # Group definitions for deployment targeting
@@ -32,7 +32,7 @@ The repository uses Custom Resource Definitions (CRDs) to define the structure a
 
 For more information on CRDs, see the [Kubernetes documentation on Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
 
-The following CRDs are defined in `data/crds.yaml`:
+The following CRDs are defined in `config/crds.yaml`:
 
 - **Cluster CRD**: Defines the structure for cluster configurations in `clusters.yaml`
   - Specifies metadata, networking, and infrastructure details for each retail store cluster
