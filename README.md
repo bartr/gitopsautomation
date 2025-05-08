@@ -1,51 +1,63 @@
 # GitOps Automation
 
-This repository contains the GitOps configurations for managing Kubernetes clusters across multiple retail store locations. Its primary purpose is to automate ring-based deployments of applications across store clusters, allowing controlled rollout of different application versions to specific groups of stores. Rings can be defined either through cluster metadata or via explicit group definitions, enabling flexible deployment strategies. The GitOps Automation tooling combines configuration data with application templates to generate store-specific Kubernetes manifests, with built-in support for rapid rollback in case of deployment issues.
+This repository contains the GitOps configurations for managing Kubernetes clusters across multiple retail store locations. Its primary purpose is to automate ring-based deployments of applications across store clusters, allowing controlled rollout of different application versions to specific groups of stores. Rings can be defined either through cluster metadata, enabling flexible deployment strategies. The GitOps Automation tooling combines configuration data with application templates to generate store-specific Kubernetes manifests, with built-in support for rapid rollback in case of deployment issues.
 
 ## Store Modernization with Azure Edge - Domino's
+
 ### The Problem
+
 The maintenance burden and complexity associated with managing large numbers of stores and clusters is leading to the inability of the Domino’s platform engineers to update the stores and applications in a timely manner. 
+
 ### Opportunity
+
 We have developed a set of tools designed to streamline application management across highly distributed platforms so that we can provide maximum flexibility, resiliency, and velocity while minimizing costs.
 Common problem --> Pattern for Retail
+
 ### Meeting our customers where they are
-* Implemented "Office Hours" for hands-on collaboration
-* Co-engineering space to cultivate expertise within Dominos’ engineering teams
-    * Azure, Kubernetes, AKS EE, Arc, and GitOps 
-    * PG group representation - support us as needed and provide status updates to Arc PG
-* Create a judgement free zone where Domino’s can participate at their own pace
+
+- Implemented "Office Hours" for hands-on collaboration
+- Co-engineering space to cultivate expertise within Dominos’ engineering teams
+    - Azure, Kubernetes, AKS EE, Arc, and GitOps 
+    - PG group representation - support us as needed and provide status updates to Arc PG
+- Create a judgement free zone where Domino’s can participate at their own pace
+
 ### One Microsoft Collaboration
-* Collaboration across ISD, GBB, Azure Edge, the account team.
-* Collaborated with Azure Edge team on AKS EE at scale, contributing to a new Arc-enabled project.
-* Utilized Dominos work to create an OSS repository demonstrating Arc for GitOps at scale.
-* Fostered collaboration with various teams (Accenture, ISD, GBB, Azure Edge, and account team), enhancing One Microsoft approach.
-* Built a seamless inner-loop Kubernetes development environment using AKS EE on DevBox in collaboration with DevDiv and Azure Edge.
-* Carmen Crincoli (Azure Edge) 
-    * _The "why" is why I want Bart and ISE involved. The work they've done on making the app development, deployment, and management process hum at Domino's is the core value for them. Our platform just enables it. In other words, stay away from the infra, focus on the app and the app platform that the infra enables._
+
+- Collaboration across ISD, GBB, Azure Edge, the account team.
+- Collaborated with Azure Edge team on AKS EE at scale, contributing to a new Arc-enabled project.
+- Utilized Dominos work to create an OSS repository demonstrating Arc for GitOps at scale.
+- Fostered collaboration with various teams (Accenture, ISD, GBB, Azure Edge, and account team), enhancing One Microsoft approach.
+- Built a seamless inner-loop Kubernetes development environment using AKS EE on DevBox in collaboration with DevDiv and Azure Edge.
+- Carmen Crincoli (Azure Edge) 
+    - _The "why" is why I want Bart and ISE involved. The work they've done on making the app development, deployment, and management process hum at Domino's is the core value for them. Our platform just enables it. In other words, stay away from the infra, focus on the app and the app platform that the infra enables._
+
 ### Product groups involved 
-* AKS EE
-* Arc
-* Arc enabled GitOps
-* GitHub
-* DevDiv
+
+- AKS EE
+- Arc
+- Arc enabled GitOps
+- GitHub
+- DevDiv
+
 ### Customers
-* Domino’s
-* Chipotle
-* Abercrombie
-* KFC x2
-* Yum
-* Dick’s Sporting Goods
-* Target
-* McDonalds x2
-* Walmart
-* Chick-Fil-A
-* Circle K
+
+- Domino’s
+- Chipotle
+- Abercrombie
+- KFC x2
+- Yum
+- Dick’s Sporting Goods
+- Target
+- McDonalds x2
+- Walmart
+- Chick-Fil-A
+- Circle K
 
 ## Configuration Management
 
 ### Custom Resource Definitions (CRDs)
 
-The repository uses Custom Resource Definitions (CRDs) to define the structure and validation rules for clusters, applications, and groups. CRDs extend the Kubernetes API by defining new, custom resource types that can be managed like built-in Kubernetes objects.
+The repository uses Custom Resource Definitions (CRDs) to define the structure and validation rules for clusters. CRDs extend the Kubernetes API by defining new, custom resource types that can be managed like built-in Kubernetes objects.
 
 For more information on CRDs, see the [Kubernetes documentation on Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
 
@@ -55,14 +67,6 @@ The following CRDs are defined in `config/crds.yaml`:
   - Specifies metadata, networking, and infrastructure details for each retail store cluster
   - Validates cluster-specific configuration parameters
 
-- **Application CRD**: Defines the structure for application configurations in `apps.yaml`
-  - Specifies versioning, dependencies, and deployment rules
-  - Ensures consistent application deployment across clusters
-
-- **Group CRD**: Defines the structure for group configurations in `groups.yaml`
-  - Allows logical grouping of clusters for deployment targeting
-  - Enables ring-based deployment strategies
-
 Sample configurations in these YAML files conform to their respective CRD specifications, ensuring consistent and validated configurations across the GitOps workflow.
 
 ### Cluster and Application Versioning
@@ -70,9 +74,9 @@ Sample configurations in these YAML files conform to their respective CRD specif
 The repository uses GitOps Automation (goa), a powerful command-line tool that streamlines the process of managing Kubernetes configurations in a GitOps workflow. It merges configuration data with K8s templates to populate the GitOps repository efficiently.
 
 #### Key Features
+
 - **Configuration Management**: Merges configuration data with Kubernetes templates
 - **Cluster Management**: Lists and manages Kubernetes clusters
-- **Group Management**: Organizes and lists application groups
 - **Application Management**: Lists and manages applications across clusters
 - **Expression Evaluation**: Supports complex expression evaluation in configurations
 - **Dry Run Support**: Tests changes before applying them
@@ -93,23 +97,39 @@ For more information on using Kustomize with Flux, see the [Flux documentation o
 
 Key applications include:
 - **POS System**: Point of Sale application for retail operations
-- **Make Line**: Automated system for burrito bowl preparation
 - **Ingress Nginx**: Kubernetes ingress controller for routing traffic
 - **Cert Manager**: SSL/TLS certificate management
 - **Heartbeat**: Health monitoring and status reporting
 
 ### Deployment Rules
 
-Applications are mapped to clusters using expressions in the `apps.yaml` file:
+Applications are mapped to clusters using expressions in the `kustomization.yaml` files:
+
+Expressions are formulas to determine which clusters apply to that expression  
+
+a token beginning with /c matches the cluster. /c/cluster.Name matches the one cluster with that name. /c/* matches all clusters. 
+
+The logical operators and, or, not are valid tokens. Parenthesis are supported for evaluation ordering. 
+
+A token beginning with /m is a metadata token. The full format is /m/key/value where key exists in the clusters metadata and the value matches. Key and value matching are case sensitive. 
+
+Examples
+All clusters - /c/*
+Austin cluster /c/tx-austin
+Clusters with ring 0 metadata - /m/ring/0
+Combining expressions- /m/ring/0 or /m/ring/1
+/m/ring/0 or /c/tx-lockhart
+/m/ring/0 and /m/oven/ACME5000
+
 
 - `/c/*`: Deploys to all clusters
 - `/m/ring/0`: Deploys to clusters with metadata `ring: 0`
-- `/g/ring1`: Deploys to clusters in the `ring1` group
 - Additional expressions can be defined for specific deployment patterns
 
 #### Process Flow
+
 1. The GitOps automation process reads the configuration files
-2. Evaluates the expressions against cluster metadata and group membership
+2. Evaluates the expressions against cluster metadata
 3. Generates the appropriate Kubernetes manifests
 4. Saves the results in the `/clusters` directory
 5. Each store gets its own subdirectory with its specific configuration
@@ -119,7 +139,6 @@ graph LR
     subgraph "Configuration"
         A[Clusters]
         B[Applications]
-        C[Groups]
     end
 
     subgraph "Deployment"
@@ -175,7 +194,6 @@ graph TB
 
     subgraph "Applications"
         E --> K[POS System]
-        E --> L[Make Line]
         E --> M[Ingress Nginx]
         E --> N[Cert Manager]
         E --> O[Heartbeat]
@@ -205,16 +223,18 @@ graph TB
 ## Components
 
 ### Applications
+
 - **POS System**: Point of Sale application for retail operations
-- **Make Line**: Automated system for burrito bowl preparation
 - **Ingress Nginx**: Kubernetes ingress controller for routing traffic
 - **Cert Manager**: SSL/TLS certificate management
 - **Heartbeat**: Health monitoring and status reporting
 
 ### Store Clusters
+
 Each retail store location has its own Kubernetes cluster, managed through GitOps. The clusters are named according to their location (e.g., `tx-austin`, `tx-round-rock`).
 
 ### GitOps Implementation
+
 This repository uses Arc enabled GitOps (Flux) for GitOps implementation, which:
 - Continuously monitors the repository for changes
 - Automatically syncs configurations to the appropriate clusters
@@ -227,7 +247,6 @@ This repository uses Arc enabled GitOps (Flux) for GitOps implementation, which:
 .
 ├── apps/                 # Kubernetes manifest templates
 │   ├── pos/              # Point of Sale system
-│   ├── make-line/        # Burrito bowl preparation system
 │   ├── ingress-nginx/    # Ingress controller
 │   ├── heartbeat/        # Health monitoring
 │   └── cert-manager/     # SSL/TLS certificate management
@@ -238,8 +257,6 @@ This repository uses Arc enabled GitOps (Flux) for GitOps implementation, which:
 │   └── ...               # Other store clusters (20 total stores)
 └── config/               # Configuration data
     ├── clusters.yaml     # Cluster definitions and metadata
-    ├── apps.yaml         # Application version definitions
-    ├── groups.yaml       # Group definitions for deployment targeting
     └── crds.yaml         # Custom Resource Definitions for validation
 ```
 

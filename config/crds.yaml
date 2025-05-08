@@ -28,93 +28,25 @@ spec:
           spec:
             type: object
             properties:
-              type:
-                type: string
-              ring:
-                type: integer
-              storeNumber:
-                type: integer
-              timezone:
-                type: string
-              region:
-                type: string
-              state:
-                type: string
-              county:
-                type: string
-              city:
-                type: string
-              description:
-                type: string
               metadata:
                 type: object
                 additionalProperties: true
     additionalPrinterColumns:
-    - jsonPath: .spec.region
+    - jsonPath: .spec.metadata.region
       name: Region
       type: string
-    - jsonPath: .spec.state
+    - jsonPath: .spec.metadata.state
       name: State
       type: string
-    - jsonPath: .spec.county
+    - jsonPath: .spec.metadata.county
       name: County
       type: string
-    - jsonPath: .spec.city
+    - jsonPath: .spec.metadata.city
       name: City
       type: string
-    - jsonPath: .spec.storeNumber
+    - jsonPath: .spec.metadata.storeNumber
       name: StoreNumber
       type: string
-    - jsonPath: .spec.ring
+    - jsonPath: .spec.metadata.ring
       name: Ring
       type: integer
-
----
-
-apiVersion: apiextensions.k8s.io/v1
-kind: CustomResourceDefinition
-metadata:
-  name: groups.goa.com
-spec:
-  group: goa.com
-  versions:
-    - name: v1
-      served: true
-      storage: true
-      schema:
-        openAPIV3Schema:
-          type: object
-          properties:
-            apiVersion:
-              type: string
-            kind:
-              type: string
-            metadata:
-              type: object
-            spec:
-              type: object
-              properties:
-                path:
-                  type: string
-                description:
-                  type: string
-                metadata:
-                  type: object
-                  additionalProperties: true
-                clusters:
-                  type: array
-                  items:
-                    type: string
-      additionalPrinterColumns:
-      - jsonPath: .spec.path
-        name: Path
-        type: string
-      subresources:
-        status: {}
-  scope: Namespaced
-  names:
-    plural: groups
-    singular: group
-    kind: Group
-    shortNames:
-      - gr
