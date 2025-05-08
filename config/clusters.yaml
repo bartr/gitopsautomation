@@ -189,12 +189,12 @@ spec:
     oven: ACME3000
     longitude: -97.55
     population: 10530
-  region: Central
-  ring: 2
-  state: TX
-  storeNumber: 78616
-  timezone: America/Chicago
-  type: store
+    region: Central
+    ring: 2
+    state: TX
+    storeNumber: 78616
+    timezone: America/Chicago
+    type: store
 ---
 apiVersion: goa.com/v1
 kind: Cluster
