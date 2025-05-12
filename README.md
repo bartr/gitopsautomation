@@ -105,7 +105,7 @@ Key applications include:
 
 Applications are mapped to clusters using expressions in the `kustomization.yaml` files:
 
-Expressions are formulas to determine which clusters apply to that expression  
+Expressions are formulas to determine which clusters apply to that expression
 
 a token beginning with /c matches the cluster. /c/cluster.Name matches the one cluster with that name. /c/* matches all clusters. 
 
@@ -114,16 +114,13 @@ The logical operators and, or, not are valid tokens. Parenthesis are supported f
 A token beginning with /m is a metadata token. The full format is /m/key/value where key exists in the clusters metadata and the value matches. Key and value matching are case sensitive. 
 
 Examples
-All clusters - /c/*
-Austin cluster /c/tx-austin
-Clusters with ring 0 metadata - /m/ring/0
-Combining expressions- /m/ring/0 or /m/ring/1
-/m/ring/0 or /c/tx-lockhart
-/m/ring/0 and /m/oven/ACME5000
-
-
 - `/c/*`: Deploys to all clusters
 - `/m/ring/0`: Deploys to clusters with metadata `ring: 0`
+- `/c/tx-austin`: Deploys to the cluster with name `tx-austin`
+- Combining expressions
+  - `/m/ring/0 or /m/ring/1`
+  - `/m/ring/0 or /c/tx-lockhart`
+  - `/m/ring/0 and /m/oven/ACME5000`
 - Additional expressions can be defined for specific deployment patterns
 
 #### Process Flow

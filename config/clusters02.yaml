@@ -2,36 +2,6 @@ apiVersion: goa.com/v1
 kind: Cluster
 metadata:
   labels:
-    city: Austin
-    county: Travis
-    region: Central
-    ring: '0'
-    state: TX
-    type: store
-  name: tx-austin
-spec:
-  metadata:
-    city: Austin
-    county: Travis
-    description: TX Austin
-    areaCode: 512
-    latitude: 30.25
-    oven: ACME4000
-    longitude: -97.85
-    population: 50000
-    region: Central
-    ring: 0
-    state: TX
-    storeNumber: 78727
-    timezone: America/Chicago
-    type: store
-
----
-
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  labels:
     city: Bastrop
     county: Bastrop
     region: Central
@@ -53,118 +23,6 @@ spec:
     ring: 2
     state: TX
     storeNumber: 78602
-    timezone: America/Chicago
-    type: store
----
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  labels:
-    city: Buda
-    county: Hays
-    region: Central
-    ring: '1'
-    state: TX
-    type: store
-  name: tx-buda
-spec:
-  metadata:
-    city: Buda
-    county: Hays
-    description: TX Buda
-    areaCode: 512
-    latitude: 30.08
-    oven: ACME3000
-    longitude: -97.83
-    population: 43790
-    region: Central
-    ring: 1
-    state: TX
-    storeNumber: 78610
-    timezone: America/Chicago
-    type: store
----
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  labels:
-    city: Burnet
-    county: Burnet
-    region: Central
-    ring: '1'
-    state: TX
-    type: store
-  name: tx-burnet
-spec:
-  metadata:
-    city: Buda
-    county: Hays
-    description: TX Buda
-    areaCode: 325
-    latitude: 30.76
-    oven: ACME4000
-    longitude: -98.22
-    population: 13540
-    region: Central
-    ring: 1
-    state: TX
-    storeNumber: 78611
-    timezone: America/Chicago
-    type: store
----
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  labels:
-    city: Cedar-Creek
-    county: Bastrop
-    region: Central
-    ring: '1'
-    state: TX
-    type: store
-  name: tx-cedar-creek
-spec:
-  metadata:
-    city: Cedar Creek
-    county: Bastrop
-    description: TX Cedar Creek
-    areaCode: 512
-    latitude: 30.08
-    oven: ACME4000
-    longitude: -97.5
-    population: 15730
-    region: Central
-    ring: 1
-    state: TX
-    storeNumber: 78612
-    timezone: America/Chicago
-    type: store
----
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  labels:
-    city: Cedar-Park
-    county: Williamson
-    region: Central
-    ring: '0'
-    state: TX
-    type: store
-  name: tx-cedar-park
-spec:
-  metadata:
-    city: Cedar Park
-    county: Williamson
-    description: TX Cedar Park
-    areaCode: 512
-    latitude: 30.51
-    oven: ACME3000
-    longitude: -97.83
-    population: 81490
-    region: Central
-    ring: 0
-    state: TX
-    storeNumber: 78613
     timezone: America/Chicago
     type: store
 ---
@@ -307,37 +165,7 @@ spec:
     storeNumber: 78624
     timezone: America/Chicago
     type: store
-
 ---
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  name: tx-georgetown
-  labels:
-    type: store
-    region: Central
-    state: TX
-    ring: "0"
-    county: Williamson
-    city: Georgetown
-spec:
-  metadata:
-    type: store
-    ring: 0
-    storeNumber: 78628
-    timezone: America/Chicago
-    region: Central
-    state: TX
-    county: Williamson
-    city: Georgetown
-    description: TX Georgetown
-    areaCode: 512
-    population: 43030
-    oven: ACME3000
-    latitude: 30.65
-    longitude: -97.75
----
-
 apiVersion: goa.com/v1
 kind: Cluster
 metadata:
@@ -366,65 +194,6 @@ spec:
     latitude: 29.5
     longitude: -97.44
 ---
-
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  name: tx-hutto
-  labels:
-    type: store
-    region: Central
-    state: TX
-    ring: "1"
-    county: Williamson
-    city: Hutto
-spec:
-  metadata:
-    type: store
-    ring: 1
-    storeNumber: 78634
-    timezone: America/Chicago
-    region: Central
-    state: TX
-    county: Williamson
-    city: Hutto
-    description: TX Hutto
-    areaCode: 512
-    population: 39190
-    oven: ACME3000
-    latitude: 30.54
-    longitude: -97.54
----
-
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  name: tx-kyle
-  labels:
-    type: store
-    region: Central
-    state: TX
-    ring: "1"
-    county: Hays
-    city: Kyle
-spec:
-  metadata:
-    type: store
-    ring: 1
-    storeNumber: 78640
-    timezone: America/Chicago
-    region: Central
-    state: TX
-    county: Hays
-    city: Kyle
-    description: TX Kyle
-    areaCode: 512
-    population: 63500
-    oven: ACME3000
-    latitude: 29.99
-    longitude: -97.87
----
-
 apiVersion: goa.com/v1
 kind: Cluster
 metadata:
@@ -453,7 +222,6 @@ spec:
     latitude: 30.56
     longitude: -97.86
 ---
-
 apiVersion: goa.com/v1
 kind: Cluster
 metadata:
@@ -482,7 +250,6 @@ spec:
     latitude: 30.66
     longitude: -97.92
 ---
-
 apiVersion: goa.com/v1
 kind: Cluster
 metadata:
@@ -510,61 +277,3 @@ spec:
     oven: ACME3000
     latitude: 29.87
     longitude: -97.67
----
-
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  name: tx-pflugerville
-  labels:
-    type: store
-    region: Central
-    state: TX
-    ring: "0"
-    county: Travis
-    city: Pflugerville
-spec:
-  metadata:
-    type: store
-    ring: 0
-    storeNumber: 78660
-    timezone: America/Chicago
-    region: Central
-    state: TX
-    county: Travis
-    city: Pflugerville
-    description: TX Pflugerville
-    areaCode: 512
-    population: 106660
-    oven: ACME4000
-    latitude: 30.44
-    longitude: -97.62
----
-
-apiVersion: goa.com/v1
-kind: Cluster
-metadata:
-  name: tx-round-rock
-  labels:
-    type: store
-    region: Central
-    state: TX
-    ring: "0"
-    county: Williamson
-    city: Round-Rock
-spec:
-  metadata:
-    type: store
-    ring: 0
-    storeNumber: 78665
-    timezone: America/Chicago
-    region: Central
-    state: TX
-    county: Williamson
-    city: Round Rock
-    description: TX Round Rock
-    areaCode: 512
-    population: 58710
-    oven: ACME4000
-    latitude: 30.54
-    longitude: -97.64
