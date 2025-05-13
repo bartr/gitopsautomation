@@ -6,5 +6,4 @@ metadata:
   namespace: cert-manager
 
 resources:
-  - ns.yaml
   - deployment.yaml
