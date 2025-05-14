@@ -6,7 +6,7 @@ This repository contains the GitOps configurations for managing Kubernetes clust
 
 ### The Problem
 
-The maintenance burden and complexity associated with managing large numbers of stores and clusters is leading to the inability of the Domino’s platform engineers to update the stores and applications in a timely manner. 
+The maintenance burden and complexity associated with managing large numbers of stores and clusters is leading to the inability of the Domino’s platform engineers to update the stores and applications in a timely manner.
 
 ### Opportunity
 
@@ -17,7 +17,7 @@ Common problem --> Pattern for Retail
 
 - Implemented "Office Hours" for hands-on collaboration
 - Co-engineering space to cultivate expertise within Dominos’ engineering teams
-    - Azure, Kubernetes, AKS EE, Arc, and GitOps 
+    - Azure, Kubernetes, AKS EE, Arc, and GitOps
     - PG group representation - support us as needed and provide status updates to Arc PG
 - Create a judgement free zone where Domino’s can participate at their own pace
 
@@ -28,10 +28,10 @@ Common problem --> Pattern for Retail
 - Utilized Dominos work to create an OSS repository demonstrating Arc for GitOps at scale.
 - Fostered collaboration with various teams (Accenture, ISD, GBB, Azure Edge, and account team), enhancing One Microsoft approach.
 - Built a seamless inner-loop Kubernetes development environment using AKS EE on DevBox in collaboration with DevDiv and Azure Edge.
-- Carmen Crincoli (Azure Edge) 
+- Carmen Crincoli (Azure Edge)
     - _The "why" is why I want Bart and ISE involved. The work they've done on making the app development, deployment, and management process hum at Domino's is the core value for them. Our platform just enables it. In other words, stay away from the infra, focus on the app and the app platform that the infra enables._
 
-### Product groups involved 
+### Product groups involved
 
 - AKS EE
 - Arc
@@ -107,11 +107,11 @@ Applications are mapped to clusters using expressions in the `kustomization.yaml
 
 Expressions are formulas to determine which clusters apply to that expression
 
-a token beginning with /c matches the cluster. /c/cluster.Name matches the one cluster with that name. /c/* matches all clusters. 
+a token beginning with /c matches the cluster. /c/cluster.Name matches the one cluster with that name. /c/* matches all clusters.
 
-The logical operators and, or, not are valid tokens. Parenthesis are supported for evaluation ordering. 
+The logical operators and, or, not are valid tokens. Parenthesis are supported for evaluation ordering.
 
-A token beginning with /m is a metadata token. The full format is /m/key/value where key exists in the clusters metadata and the value matches. Key and value matching are case sensitive. 
+A token beginning with /m is a metadata token. The full format is /m/key/value where key exists in the clusters metadata and the value matches. Key and value matching are case sensitive.
 
 Examples
 - `/c/*`: Deploys to all clusters
@@ -283,8 +283,3 @@ This repository uses Arc enabled GitOps (Flux) for GitOps implementation, which:
 
 ## Support
 For support, please create an issue in this repository
-
-<div align="center">
-    Powered by: Firefly Nixie<br>
-    <img src="images/nixie.png" alt="Powered by: Firefly Nixie" height="120">
-</div>
