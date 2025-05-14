@@ -4,7 +4,7 @@ metadata:
   name: make-line
   namespace: make-line
   annotations:
-    #expression: /c/*
+    expression: /c/*
     version: v0.1.0
 
 resources:
