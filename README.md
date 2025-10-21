@@ -4,6 +4,10 @@
 
 - Run the following GitHub Copilot prompt
   - analyze all of the files in this repo and explain what the repo does
+- This prompt will show that Heartbeat 0.4.0 is deployed to Ring 0
+  - using the definitions in ./clusters, which clusters is version 0.4.0 of heartbeat deployed to?
+- This prompt will show how to deploy heartbeat 0.4.0 to Rings 0 and 1
+  - using the definitions in ./clusters and ./config, explain the changes necessary to deploy Heartbeat version 0.4.0 to Ring 0 and Ring 1
 
 ## Prerequisites
 
