@@ -1,6 +1,6 @@
 # 🚀 How AI Transformed Our GitOps Deployment Strategy at Scale 🚀
 
-We're excited to share a behind the scenes look at our ongoing GitOps Automation journey with Domino's. We started it off with a single crew and it has grown into a trusted advisory relationship between Firefly Nixie, Americas 2 Engineering Studio and Domino's. What began as a focused co-engineering engagement has evolved into a model of deep partnership, where we're not just solving technical challenges, we're shaping a repeatable blueprint for distributed systems at scale.
+We're excited to share a behind the scenes look at our ongoing Store Operations Automation journey with Domino's. We started it off with a single crew and it has grown into a trusted advisory relationship between Firefly Nixie, Americas 2 Engineering Studio and Domino's. What began as a focused co-engineering engagement has evolved into a model of deep partnership, where we're not just solving technical challenges, we're shaping a repeatable blueprint for distributed systems at scale.
 
 Domino's operates nearly 7,000 U.S. stores (and 14,000 globally), each with its own unique configurations, from tax tables to coupons. Managing this complexity across thousands of edge clusters was a massive operational burden. We introduced GitOps Automation as a scalable, resilient, and flexible solution, unlocking velocity, reducing risk, and empowering Domino's infrastructure engineers to innovate faster.
 
