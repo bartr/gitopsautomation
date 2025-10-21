@@ -40,7 +40,7 @@ We did a quick spike to see if we could generate the "GitOps Automation" used by
 
 ## 🎯 Try It Yourself
 
-Ready to see AI-powered GitOps automation in action? Here's how you can experience what transformed our deployment strategy:
+Want to see AI-powered GitOps in action?
 
 ### 🚀 Explore the Repository
 Visit our [GitOps Automation repository](https://github.com/bartr/gitopsautomation) and see the multi-cluster configuration structure that powers Domino's stores.
@@ -60,7 +60,8 @@ You'll be amazed at how well modern AI understands GitOps patterns and can expla
 - **Validate Everything**: AI-generated code should always be reviewed and tested
 
 ### 📧 Share Your Results
-Have you tried using AI for GitOps or Store Operations? I'd love to hear about your experiences.
+
+Have you tried using AI for GitOps or Store Operations? We would love to hear about your experiences. Comment below and/or ping us on Teams.
 
 ---
 
