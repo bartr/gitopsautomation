@@ -47,11 +47,13 @@ Want to see AI-powered GitOps in action?
 Visit our [GitOps Automation repository](https://github.com/bartr/gitopsautomation) and see the multi-cluster configuration structure that powers Domino's stores.
 
 ### 🤖 Test GitHub Copilot's GitOps Knowledge
-Try this prompt in GitHub Copilot Chat while viewing our repository:
 
-```
-analyze all of the files in this repo and explain what the repo does
-```
+- Try this prompt in GitHub Copilot Chat while viewing our repository:
+  - `analyze all of the files in this repo and explain what the repo does`
+- This prompt will show that Heartbeat 0.4.0 is deployed to Ring 0
+  - `using the definitions in ./clusters, which clusters is version 0.4.0 of heartbeat deployed to?`
+- This prompt will show how to deploy heartbeat 0.4.0 to Rings 0 and 1
+  - `using the definitions in ./clusters and ./config, explain the changes necessary to deploy Heartbeat version 0.4.0 to Ring 0 and Ring 1`
 
 You'll be amazed at how well modern AI understands GitOps patterns and can explain complex infrastructure configurations.
 
