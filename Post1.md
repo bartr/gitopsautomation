@@ -1,14 +1,16 @@
-# 🚀 How AI Transformed Our GitOps Deployment Strategy at Scale 🚀
+# 🚀 How AI Transformed Our GitOps Deployment Strategy at Scale
 
-We're excited to share a behind the scenes look at our ongoing GitOps Automation journey with Domino's. We started it off with a single crew and it has grown into a trusted advisory relationship between Firefly Nixie, Americas 2 Engineering Studio and Domino's. What began as a focused co-engineering engagement has evolved into a model of deep partnership, where we're not just solving technical challenges, we're shaping a repeatable blueprint for distributed systems at scale.
-
-Domino's operates nearly 7,000 U.S. stores (and 14,000 globally), each with its own unique configurations, from tax tables to coupons. Managing this complexity across thousands of edge clusters was a massive operational burden. We introduced GitOps Automation as a scalable, resilient, and flexible solution, unlocking velocity, reducing risk, and empowering Domino's infrastructure engineers to innovate faster.
+We're excited to share a behind the scenes look at our ongoing Store Modernization journey with Domino's. We started it off with a single crew and it has grown into a trusted advisory relationship between Firefly Nixie, Americas 2 Engineering Studio and Domino's. What began as a focused co-engineering engagement has evolved into a model of deep partnership, where we're not just solving technical challenges, we're shaping a repeatable blueprint for distributed systems at scale.
 
 We've built trust through hands-on collaboration, including “Office Hours” that foster learning in a safe, judgment-free environment. This is also a One Microsoft effort between ISE, GBBs, Azure Edge PG, the account team, and scale partners like ISD and Accenture all coming together to deliver real-world impact.
 
+Domino's operates over 6,500 U.S. stores (and 14,000 globally), each with its own unique configurations, from tax tables to coupons. Managing this complexity across thousands of edge clusters was a massive operational burden. We introduced GitOps Automation as a scalable, resilient, and flexible solution, unlocking velocity, reducing risk, and empowering Domino's infrastructure engineers to innovate faster.
+
 To keep the conversation focused and digestible, we'll be sharing a series of posts, each highlighting one key insight, challenge, or breakthrough from our journey. Stay tuned for what we've learned, what's next, and how this work is shaping the future of edge innovation in Retail.
 
-> The moment that changed everything ...
+The original press release is available [here](https://news.microsoft.com/2024/05/21/microsoft-helps-dominos-accelerate-store-modernization-with-ai-powered-gitops-automation/).
+
+## ⚡ The moment that changed everything
 
 Up to this point, we had been working on "ResEdge" as an Open Source project that we were building with Domino's and other Azure Edge customers. We were following normal, early OSS approaches and had ResEdge deployed at Domino's. Things were going well.
 
@@ -55,10 +57,10 @@ You'll be amazed at how well modern AI understands GitOps patterns and can expla
 ### 💡 Apply These Lessons to Your Projects
 - **Start Small**: Pick one friction point in your deployment workflow and see if AI can help generate a solution
 - **Iterate Often**: AI capabilities improve rapidly - revisit your use cases every few months
-- **Validate Everything**: AI-generated infrastructure code should always be reviewed and tested
+- **Validate Everything**: AI-generated code should always be reviewed and tested
 
 ### 📧 Share Your Results
-Have you tried using AI for GitOps? I'd love to hear about your experiences.
+Have you tried using AI for GitOps or Store Operations? I'd love to hear about your experiences.
 
 ---
 
