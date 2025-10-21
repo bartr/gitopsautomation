@@ -56,7 +56,9 @@ analyze all of the files in this repo and explain what the repo does
 You'll be amazed at how well modern AI understands GitOps patterns and can explain complex infrastructure configurations.
 
 ### 💡 Apply These Lessons to Your Projects
-- **Start Small**: Pick one friction point in your deployment workflow and see if AI can help generate a solution
+- **Start Small**: Pick one use case and see if AI can help generate a solution
+- **Context is Key**: Provide clear, specific prompts and context to get the best results from an LLM
+- **Have Good Tests**: If you have good test cases, LLMs can effectively generate code
 - **Iterate Often**: AI capabilities improve rapidly - revisit your use cases every few months
 - **Validate Everything**: AI-generated code should always be reviewed and tested
 
