@@ -1,57 +1,73 @@
-# 🚀 How AI Transformed Our GitOps Deployment Strategy at Scale 🚀
+# 🚀 How AI Transformed Our Store Modernization at Scale
 
-> The moment that changed everything ...
+We're excited to share a behind-the-scenes look at our ongoing Store Modernization journey with Domino's. We started the project as an advisory engagement, added a crew for two milestones, and the engagement has grown into a trusted advisory relationship between Firefly Nixie, Americas 2 Engineering Studio and Domino's. What began as a focused co-engineering engagement has evolved into a model of deep partnership, where we're not just solving technical challenges, we're shaping a repeatable blueprint for distributed systems at scale.
+
+We've built trust through hands-on collaboration, including “Office Hours” that foster learning in a safe, judgment-free environment. This is also a One Microsoft effort between ISE, GBBs, Azure Edge PG, the account team, and scale partners like ISD and Accenture all coming together to deliver real-world impact.
+
+Domino's operates over 6,500 U.S. stores (and 14,000 globally), each with its own unique configurations, from tax tables to coupons. Managing this complexity across thousands of edge clusters was a massive operational burden. We introduced GitOps Automation as a scalable, resilient, and flexible solution, unlocking velocity, reducing risk, and empowering Domino's infrastructure engineers to innovate faster.
+
+To keep the conversation focused and digestible, we'll be sharing a series of posts, each highlighting one key insight, challenge, or breakthrough from our journey. Stay tuned for what we've learned, what's next, and how this work is shaping the future of edge innovation in Retail.
+
+The original press release is available [here](https://news.microsoft.com/2024/05/21/microsoft-helps-dominos-accelerate-store-modernization-with-ai-powered-gitops-automation/).
+
+## ⚡ The moment that changed everything
 
 Up to this point, we had been working on "ResEdge" as an Open Source project that we were building with Domino's and other Azure Edge customers. We were following normal, early OSS approaches and had ResEdge deployed at Domino's. Things were going well.
 
-During an ISE review, someone asked if we had tried using AI on the repo? It had been about 6 months since we tried and the results were abyssmal. The LLM basically had no idea what GitOps was.
+During an ISE review, someone asked if we had tried using AI on the repo. It had been about 6 months since we tried and the results were abysmal. The LLM basically had no idea what GitOps was.
 
-So, we tried again with low expectations. We typed in a prompt similar to "explain this repo" and were floored by the results. The LLM had gone from no GitOps knowledge to a GitOps expert. This changed everything! (we didn't realize it at the time, but our HVE journey had started.)
-
-You can get a similar experience by going to https://github.com/bartr/gitopsautomation and typing the prompt in the readme into the GitHub Copilot chat.
+So, we tried again with low expectations. We typed in a prompt similar to "explain this repo" and were floored by the results. The LLM had gone from no GitOps knowledge to a GitOps expert. This changed everything! (We didn't realize it at the time, but our HVE journey had started.)
 
 ## 🔄 How did this change things?
 
-We already had ResEdge deployed at Domino's but there was some `friction` in Domino's in-store workflow and the way ResEdge and GitOps in general worked.
+We already had ResEdge deployed at Domino's, but there was some `friction` in Domino's in-store workflow and the way ResEdge and GitOps in general worked.
 
-We did a quick spike to see if we could generate the "GitOps Automation" used by ResEdge using Cursor. The results were very promising. Over the next few weeks, we worked with Domino's and were able to use Cursor to generate the application so that it fit seamlessly into Domino's workflow. The friction was gone! This solved all of the issues around integration and put us on a clear path to rollout.
+We did a quick spike to see if we could generate the "GitOps Automation" used by ResEdge using Cursor. The results were very promising. Over the next few weeks, we worked with Domino's and were able to use Cursor to generate the application so that it fit seamlessly into Domino's workflow. The friction was gone! This solved all of the issues around integration, and put us on a clear path to rollout.
+
+Over the 8 months, we helped Domino's regenerate their solution 2 more times. When Domino's wanted to change their in-store workflow, we simply prompted GitHub Copilot to regenerate the GitOps Automation to match the new workflow. This was a game-changer! Domino's infrastructure engineers could now focus on defining their desired state and let Copilot handle the heavy lifting.
 
 ## 📈 Results
 
-- We were able to get the AKS Edge clusters deployed in production to 100 Domino's stores with a plan to deploy to all 6,500 North America stores in the next 3 years.
+- We were able to get the AKS Edge clusters deployed in production to 120 Domino's stores with a plan to deploy to all 6,500 North America stores in the next 3 years.
 - ISE doesn't have any source code to maintain! It was all generated by Domino's.
-- We began working with the Domino's Store Operations team on additional projects that are being deployed to the stores. More on that in the follow up posts.
-- We provided feedback to DevDiv and can now use VS Code with Copilot in addition to Cursor.
+- We expanded our partnership with the Domino's Store Operations team to additional projects that are being deployed to the stores.
+- We provided actionable feedback to DevDiv, and are now using VS Code with Copilot.
 
 ## 💡 Key Learnings
 
-- LLMs are good at some things and not so good at others. It's important to understand where LLMs can add value to `your use case`.
-- LLMs get better every release - it's worth revisiting your use case every few months to see if the LLMs can now help.
+- LLMs are good at some things and not so good at others. It's important to understand where LLMs can add value to `your use cases`.
+- LLMs get better every release - it's worth revisiting your use cases every few months to see if the LLMs can now help.
+- If you have good test cases, LLMs are very effective at re-generating code.
 
 ## 🎯 Try It Yourself
 
-Ready to see AI-powered GitOps automation in action? Here's how you can experience what transformed our deployment strategy:
+Want to see AI-powered GitOps in action?
 
 ### 🚀 Explore the Repository
 Visit our [GitOps Automation repository](https://github.com/bartr/gitopsautomation) and see the multi-cluster configuration structure that powers Domino's stores.
 
 ### 🤖 Test GitHub Copilot's GitOps Knowledge
-Try this prompt in GitHub Copilot Chat while viewing our repository:
 
-```
-analyze all of the files in this repo and explain what the repo does
-```
+- Try this prompt in GitHub Copilot Chat while viewing our repository:
+  - `analyze all of the files in this repo and explain what the repo does`
+- This prompt will show that Heartbeat 0.4.0 is deployed to Ring 0
+  - `using the definitions in ./clusters, which clusters is version 0.4.0 of heartbeat deployed to?`
+- This prompt will show how to deploy heartbeat 0.4.0 to Rings 0 and 1
+  - `using the definitions in ./clusters and ./config, explain the changes necessary to deploy Heartbeat version 0.4.0 to Ring 0 and Ring 1`
 
 You'll be amazed at how well modern AI understands GitOps patterns and can explain complex infrastructure configurations.
 
 ### 💡 Apply These Lessons to Your Projects
-- **Start Small**: Pick one friction point in your deployment workflow and see if AI can help generate a solution
+- **Start Small**: Pick one use case and see if AI can help generate a solution
+- **Context is Key**: Provide clear, specific prompts and context to get the best results from an LLM
+- **Have Good Tests**: If you have good test cases, LLMs can effectively generate code
 - **Iterate Often**: AI capabilities improve rapidly - revisit your use cases every few months
-- **Validate Everything**: AI-generated infrastructure code should always be reviewed and tested
+- **Validate Everything**: AI-generated code should always be reviewed and tested
 
 ### 📧 Share Your Results
-Have you tried using AI for GitOps? I'd love to hear about your experiences.
+
+Have you tried using AI for GitOps or Store Operations? We would love to hear about your experiences. Comment below and/or ping us on Teams.
 
 ---
 
-*This post is part of a series on Domino's AI-powered store operations journey. Stay tuned for follow-up posts covering our Store Operations team collaborations and lessons learned from scaling to 6,500+ locations.*
+*This post is part of a series on Domino's AI-powered Store Modernization journey. Stay tuned for follow-up posts covering our Store Operations team collaborations and lessons learned from scaling to 6,500+ locations.*
